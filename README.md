@@ -22,14 +22,14 @@ Widok aplikacji po zalogowaniu przez usera:
 
 Dane logowania do aplikacji:
 
-Admin
-Login: admin
-Hasło: Admin1234
+Admin <br>
+Login: admin <br>
+Hasło: Admin1234 <br>
 
-Agent
-Login: agent
-Hasło: Agent1234
+Agent <br>
+Login: agent <br>
+Hasło: Agent1234 <br>
 
-User
-Login: user
-Hasło: User1234
+User <br>
+Login: user <br>
+Hasło: User1234 <br>
