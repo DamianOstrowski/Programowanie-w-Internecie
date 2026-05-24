@@ -16,7 +16,7 @@ Okno logowania:
 
 <img width="1678" height="982" alt="6" src="https://github.com/user-attachments/assets/e2f43303-b909-4b9a-b693-ea92b9965fd8" />
 
-<br>Widok aplikacji po zalogowaniu przez user:
+<br>Widok aplikacji po zalogowaniu przez użytkownika:
 
 <img width="1684" height="996" alt="10" src="https://github.com/user-attachments/assets/6360862b-fb85-4115-befe-cbc175f21699" />
 
