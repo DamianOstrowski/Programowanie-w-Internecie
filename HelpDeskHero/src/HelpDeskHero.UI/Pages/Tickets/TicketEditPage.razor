@@ -1,0 +1,109 @@
+﻿@page "/tickets/edit/{Id:int}"
+@attribute [Authorize(Policy = "CanManageTickets")]
+
+@using HelpDeskHero.Shared.Contracts.Tickets
+@inject HelpDeskHero.UI.Services.Api.ITicketApiClient TicketApi
+@inject NavigationManager Nav
+
+<h3>Edycja zgłoszenia</h3>
+
+@if (!string.IsNullOrWhiteSpace(_error))
+{
+    <div class="alert alert-danger">@_error</div>
+}
+
+@if (_model is null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <EditForm Model="_model" OnValidSubmit="SaveAsync">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label>Tytuł</label>
+            <InputText class="form-control" @bind-Value="_model.Title" />
+        </div>
+
+        <div class="mb-3">
+            <label>Opis</label>
+            <InputTextArea class="form-control" @bind-Value="_model.Description" />
+        </div>
+
+        <div class="mb-3">
+            <label>Status</label>
+            <InputSelect class="form-select" @bind-Value="_model.Status">
+                <option value="New">New</option>
+                <option value="InProgress">InProgress</option>
+                <option value="Resolved">Resolved</option>
+                <option value="Closed">Closed</option>
+            </InputSelect>
+        </div>
+
+        <div class="mb-3">
+            <label>Priorytet</label>
+            <InputSelect class="form-select" @bind-Value="_model.Priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Critical">Critical</option>
+            </InputSelect>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Zapisz</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private UpdateTicketDto? _model;
+    private string? _error;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var dto = await TicketApi.GetByIdAsync(Id);
+        if (dto is null)
+        {
+            _error = "Nie znaleziono zgłoszenia.";
+            _model = null;
+            return;
+        }
+
+        _error = null;
+        _model = new UpdateTicketDto
+        {
+            Title = dto.Title,
+            Description = dto.Description,
+            Status = dto.Status,
+            Priority = dto.Priority,
+            RowVersionBase64 = dto.RowVersionBase64
+        };
+    }
+
+    private async Task SaveAsync()
+    {
+        if (_model is null)
+            return;
+
+        _error = null;
+
+        var response = await TicketApi.UpdateAsync(Id, _model);
+
+        if (response.IsSuccessStatusCode)
+        {
+            Nav.NavigateTo($"/tickets/{Id}");
+            return;
+        }
+
+        if ((int)response.StatusCode == 409)
+        {
+            _error = "Konflikt zapisu: rekord został zmieniony przez innego użytkownika.";
+            return;
+        }
+
+        _error = "Nie udało się zapisać zmian.";
+    }
+}

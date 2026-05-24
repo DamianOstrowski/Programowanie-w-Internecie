@@ -1,0 +1,7 @@
+@page "/admin"
+@attribute [Authorize(Roles = "Admin")]
+
+<PageTitle>Panel admina</PageTitle>
+
+<h3>Panel admina</h3>
+<p>Tylko rola Admin. Endpointy administracyjne są dodatkowo chronione w API (np. polityka CanViewAudit).</p>

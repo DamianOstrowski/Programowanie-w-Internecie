@@ -1,0 +1,57 @@
+@page "/notifications"
+@attribute [Authorize]
+@using HelpDeskHero.Shared.Contracts.Notifications
+@using HelpDeskHero.UI.Services.Api
+@inject NotificationApiClient NotificationApi
+
+<PageTitle>Powiadomienia</PageTitle>
+
+<h3>Powiadomienia</h3>
+
+@if (_loading)
+{
+    <p>Ładowanie...</p>
+}
+else if (_items.Count == 0)
+{
+    <p>Brak powiadomień.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var item in _items)
+        {
+            <li class="list-group-item">
+                <div class="d-flex justify-content-between">
+                    <strong>@item.Subject</strong>
+                    @if (!item.IsRead)
+                    {
+                        <button class="btn btn-sm btn-outline-secondary" @onclick="() => MarkAsReadAsync(item)">Oznacz jako przeczytane</button>
+                    }
+                </div>
+                <div>@item.Body</div>
+                <div class="small text-muted">@item.CreatedAtUtc.ToLocalTime()</div>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private bool _loading = true;
+    private List<UserNotificationDto> _items = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _items = (await NotificationApi.GetMineAsync()).ToList();
+        _loading = false;
+    }
+
+    private async Task MarkAsReadAsync(UserNotificationDto item)
+    {
+        var response = await NotificationApi.MarkAsReadAsync(item.Id);
+        if (response.IsSuccessStatusCode)
+        {
+            item.IsRead = true;
+        }
+    }
+}

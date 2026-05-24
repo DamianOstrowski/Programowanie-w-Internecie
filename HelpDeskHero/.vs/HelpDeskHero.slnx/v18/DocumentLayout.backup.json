@@ -1,0 +1,572 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kalin\\Projekty\\PIE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\tickets\\ticketeditpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\tickets\\ticketeditpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\tickets\\ticketlistpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\tickets\\ticketlistpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\tickets\\ticketdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\tickets\\ticketdetailspage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\tickets\\ticketcreatepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\tickets\\ticketcreatepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\infrastructure\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\infrastructure\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|src{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|C:\\Users\\kalin\\Projekty\\PIE\\src\\notatki.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|src{827E0CD3-B72D-47B6-A68D-7590B98EB39B}|solutionrelative:src\\notatki.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\auth\\loginpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\auth\\loginpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\tickets\\ticketdetailspage.razor||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\tickets\\ticketdetailspage.razor||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\auth\\loginpage.razor||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\auth\\loginpage.razor||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\pages\\auth\\logoutpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\pages\\auth\\logoutpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\services\\auth\\jwtauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\services\\auth\\jwtauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\wwwroot\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\helpdeskhero.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\helpdeskhero.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.shared\\helpdeskhero.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|solutionrelative:src\\helpdeskhero.shared\\helpdeskhero.shared.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\domain\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\domain\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.shared\\contracts\\auth\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|solutionrelative:src\\helpdeskhero.shared\\contracts\\auth\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|Elementy rozwi\u0105zania{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\tasks.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|Elementy rozwi\u0105zania{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|solutionrelative:.vscode\\tasks.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|Elementy rozwi\u0105zania{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|Elementy rozwi\u0105zania{7DDE08A1-4D27-4035-BAD8-3E2D128584CF}|solutionrelative:.vscode\\launch.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.ui\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4A1D61ED-7FA8-2591-9D1F-30ED9799BE8F}|src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj|solutionrelative:src\\helpdeskhero.ui\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{35B12835-2722-A309-3532-54F3207DC341}|src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj|solutionrelative:src\\helpdeskhero.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.shared\\contracts\\tickets\\updateticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|solutionrelative:src\\helpdeskhero.shared\\contracts\\tickets\\updateticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.shared\\contracts\\tickets\\createticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|solutionrelative:src\\helpdeskhero.shared\\contracts\\tickets\\createticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|c:\\users\\kalin\\projekty\\pie\\src\\helpdeskhero.shared\\contracts\\tickets\\ticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6D0AF46-D4E6-7A41-C14C-A2CD99264E0D}|src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj|solutionrelative:src\\helpdeskhero.shared\\contracts\\tickets\\ticketdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TicketEditPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketEditPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketEditPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketEditPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketEditPage.razor",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAmwG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:44:46.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\appsettings.Development.json",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:59:05.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TicketListPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketListPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketListPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketListPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketListPage.razor",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAIEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T20:25:45.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TicketDetailsPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAkwDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:55:01.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TicketCreatePage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketCreatePage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketCreatePage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketCreatePage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketCreatePage.razor",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:55:02.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:58:36.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Program.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Program.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:22:34.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Program.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Program.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Program.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:24:13.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "notatki.md",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\notatki.md",
+              "RelativeDocumentMoniker": "src\\notatki.md",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\notatki.md",
+              "RelativeToolTip": "src\\notatki.md",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2026-04-11T20:53:01.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "LoginPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:48:05.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TicketDetailsPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Tickets\\TicketDetailsPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:43:47.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoginPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Auth\\LoginPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:42:17.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T20:26:11.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LogoutPage.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LogoutPage.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Pages\\Auth\\LogoutPage.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Pages\\Auth\\LogoutPage.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Pages\\Auth\\LogoutPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:45:17.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\_Imports.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\_Imports.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\_Imports.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T21:42:52.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\App.razor",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\App.razor",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\App.razor",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\App.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-11T20:25:59.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "JwtAuthenticationStateProvider.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Services\\Auth\\JwtAuthenticationStateProvider.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Services\\Auth\\JwtAuthenticationStateProvider.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Services\\Auth\\JwtAuthenticationStateProvider.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Services\\Auth\\JwtAuthenticationStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T21:38:33.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\wwwroot\\index.html",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\wwwroot\\index.html",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-11T21:36:51.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\wwwroot\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\wwwroot\\appsettings.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\wwwroot\\appsettings.json",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\wwwroot\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:24:03.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "HelpDeskHero.Api",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAkwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-11T20:28:32.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HelpDeskHero.Shared",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj",
+              "RelativeToolTip": "src\\HelpDeskHero.Shared\\HelpDeskHero.Shared.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-11T20:17:13.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TicketsController.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Controllers\\TicketsController.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Controllers\\TicketsController.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Controllers\\TicketsController.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Controllers\\TicketsController.cs",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAowNEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:22:11.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T21:19:28.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Domain\\Ticket.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Domain\\Ticket.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Domain\\Ticket.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Domain\\Ticket.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:57:43.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LoginRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Auth\\LoginRequestDto.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Shared\\Contracts\\Auth\\LoginRequestDto.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Auth\\LoginRequestDto.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Shared\\Contracts\\Auth\\LoginRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T21:15:10.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "tasks.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\tasks.json",
+              "RelativeDocumentMoniker": ".vscode\\tasks.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\tasks.json",
+              "RelativeToolTip": ".vscode\\tasks.json",
+              "ViewState": "AgIAABEAAAAAAAAAAAAUwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:31:41.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "launch.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\launch.json",
+              "RelativeDocumentMoniker": ".vscode\\launch.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\.vscode\\launch.json",
+              "RelativeToolTip": ".vscode\\launch.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:32:47.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.UI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.UI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\HelpDeskHero.UI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:26:23.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "src\\HelpDeskHero.Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T20:23:04.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UpdateTicketDto.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\UpdateTicketDto.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\UpdateTicketDto.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\UpdateTicketDto.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\UpdateTicketDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:21:03.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CreateTicketDto.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\CreateTicketDto.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\CreateTicketDto.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\CreateTicketDto.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\CreateTicketDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:20:46.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "TicketDto.cs",
+              "DocumentMoniker": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\TicketDto.cs",
+              "RelativeDocumentMoniker": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\TicketDto.cs",
+              "ToolTip": "C:\\Users\\kalin\\Projekty\\PIE\\src\\HelpDeskHero.Shared\\Contracts\\Tickets\\TicketDto.cs",
+              "RelativeToolTip": "src\\HelpDeskHero.Shared\\Contracts\\Tickets\\TicketDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T20:20:00.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

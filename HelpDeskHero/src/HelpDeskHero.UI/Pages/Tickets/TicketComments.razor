@@ -1,0 +1,65 @@
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Services.Api
+@inject TicketCommentApiClient CommentApi
+
+@if (_loading)
+{
+    <p>Ładowanie komentarzy...</p>
+}
+else if (_comments.Count == 0)
+{
+    <p>Brak komentarzy.</p>
+}
+else
+{
+    <ul class="list-group mb-3">
+        @foreach (var item in _comments)
+        {
+            <li class="list-group-item">
+                <div><strong>@item.CreatedByDisplayName</strong> (@item.CreatedAtUtc.ToLocalTime())</div>
+                <div>@item.Body</div>
+                @if (item.IsInternal)
+                {
+                    <small>Internal</small>
+                }
+            </li>
+        }
+    </ul>
+}
+
+<EditForm Model="_newComment" OnValidSubmit="HandleCreateAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputTextArea class="form-control mb-2" @bind-Value="_newComment.Body" />
+    <div class="form-check mb-2">
+        <InputCheckbox class="form-check-input" @bind-Value="_newComment.IsInternal" />
+        <label class="form-check-label">Komentarz wewnętrzny</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Dodaj komentarz</button>
+</EditForm>
+
+@code {
+    [Parameter] public int TicketId { get; set; }
+
+    private bool _loading = true;
+    private List<TicketCommentDto> _comments = [];
+    private CreateTicketCommentDto _newComment = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loading = true;
+        _comments = (await CommentApi.GetAllAsync(TicketId)).ToList();
+        _loading = false;
+    }
+
+    private async Task HandleCreateAsync()
+    {
+        var created = await CommentApi.CreateAsync(TicketId, _newComment);
+        if (created is not null)
+        {
+            _comments.Add(created);
+            _newComment = new CreateTicketCommentDto();
+        }
+    }
+}

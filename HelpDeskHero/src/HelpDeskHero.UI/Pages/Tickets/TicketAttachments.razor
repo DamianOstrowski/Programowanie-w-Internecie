@@ -1,0 +1,73 @@
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Services.Api
+@inject TicketAttachmentApiClient AttachmentApi
+@inject NavigationManager Nav
+
+@if (_loading)
+{
+    <p>Ładowanie załączników...</p>
+}
+else if (_attachments.Count == 0)
+{
+    <p>Brak załączników.</p>
+}
+else
+{
+    <ul class="list-group mb-3">
+        @foreach (var item in _attachments)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>@item.OriginalFileName</strong>
+                    <div class="small text-muted">@item.SizeBytes B, @item.UploadedAtUtc.ToLocalTime()</div>
+                </div>
+                <button class="btn btn-sm btn-outline-primary" @onclick="() => Download(item.Id)">Pobierz</button>
+            </li>
+        }
+    </ul>
+}
+
+<InputFile OnChange="HandleUploadAsync" />
+@if (!string.IsNullOrWhiteSpace(_error))
+{
+    <div class="alert alert-danger mt-2">@_error</div>
+}
+
+@code {
+    [Parameter] public int TicketId { get; set; }
+
+    private bool _loading = true;
+    private List<TicketAttachmentDto> _attachments = [];
+    private string? _error;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _loading = true;
+        _attachments = (await AttachmentApi.GetAllAsync(TicketId)).ToList();
+        _loading = false;
+    }
+
+    private async Task HandleUploadAsync(InputFileChangeEventArgs e)
+    {
+        _error = null;
+        var file = e.File;
+        if (file is null)
+            return;
+
+        try
+        {
+            var uploaded = await AttachmentApi.UploadAsync(TicketId, file);
+            if (uploaded is not null)
+                _attachments.Insert(0, uploaded);
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+    }
+
+    private void Download(int attachmentId)
+    {
+        Nav.NavigateTo($"api/tickets/{TicketId}/attachments/{attachmentId}/download", forceLoad: true);
+    }
+}

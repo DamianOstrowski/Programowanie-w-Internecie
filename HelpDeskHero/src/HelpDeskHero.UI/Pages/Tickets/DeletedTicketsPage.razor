@@ -1,0 +1,94 @@
+@page "/tickets/deleted"
+@attribute [Authorize(Policy = "CanManageTickets")]
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Components.Shared
+@using HelpDeskHero.UI.Services.Api
+@inject TicketApiClient TicketApi
+
+<PageTitle>Usunięte zgłoszenia</PageTitle>
+
+<h3>Kosz — usunięte zgłoszenia</h3>
+
+@if (_loading)
+{
+    <p>Ładowanie...</p>
+}
+else if (!string.IsNullOrWhiteSpace(_error))
+{
+    <div class="alert alert-danger">@_error</div>
+}
+else if (_items.Count == 0)
+{
+    <p>Brak usuniętych zgłoszeń.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Tytuł</th>
+                <th>Status</th>
+                <th>Priorytet</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _items)
+            {
+                <tr>
+                    <td>@item.Number</td>
+                    <td>@item.Title</td>
+                    <td><StatusBadge Status="@item.Status" /></td>
+                    <td><PriorityBadge Priority="@item.Priority" /></td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-success" type="button" @onclick="() => RestoreAsync(item.Id)">Przywróć</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private bool _loading = true;
+    private string? _error;
+    private List<TicketDto> _items = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ReloadAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
+        _loading = true;
+        _error = null;
+        try
+        {
+            var data = await TicketApi.GetDeletedAsync();
+            _items = data?.ToList() ?? [];
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task RestoreAsync(int id)
+    {
+        _error = null;
+        var response = await TicketApi.RestoreAsync(id);
+        if (!response.IsSuccessStatusCode)
+        {
+            _error = "Nie udało się przywrócić zgłoszenia.";
+            return;
+        }
+
+        await ReloadAsync();
+    }
+}

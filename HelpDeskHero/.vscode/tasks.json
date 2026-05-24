@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-all",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "build",
+        ".\\HelpDeskHero.sln"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-api",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        ".\\src\\HelpDeskHero.Api\\HelpDeskHero.Api.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "run-ui",
+      "type": "process",
+      "command": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        ".\\src\\HelpDeskHero.UI\\HelpDeskHero.UI.csproj"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

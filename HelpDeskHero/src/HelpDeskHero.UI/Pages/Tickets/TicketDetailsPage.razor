@@ -1,0 +1,104 @@
+﻿@page "/tickets/{Id:int}"
+@attribute [Authorize]
+@implements IAsyncDisposable
+
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Components.Shared
+@using HelpDeskHero.UI.Services.Realtime
+@inject HelpDeskHero.UI.Services.Api.ITicketApiClient TicketApi
+@inject ITicketRealtime TicketRealtime
+@inject NavigationManager Nav
+
+<PageTitle>Szczegóły</PageTitle>
+
+<h3>Szczegóły zgłoszenia</h3>
+
+@if (_ticket is null && !_done)
+{
+    <Loading />
+}
+else if (_ticket is null)
+{
+    <p>Nie znaleziono zgłoszenia.</p>
+}
+else
+{
+    <p><strong>Numer:</strong> @_ticket.Number</p>
+    <p><strong>Tytuł:</strong> @_ticket.Title</p>
+    <p><strong>Status:</strong> <StatusBadge Status="@_ticket.Status" /></p>
+    <p><strong>Priorytet:</strong> <PriorityBadge Priority="@_ticket.Priority" /></p>
+    <p><strong>Opis:</strong> @_ticket.Description</p>
+    <p><strong>Utworzono (UTC):</strong> @_ticket.CreatedAtUtc</p>
+    @if (_ticket.UpdatedAtUtc is not null)
+    {
+        <p><strong>Zaktualizowano (UTC):</strong> @_ticket.UpdatedAtUtc</p>
+    }
+    @if (_ticket.AssignedToUserId is not null)
+    {
+        <p><strong>Przypisano (user id):</strong> @_ticket.AssignedToUserId</p>
+    }
+    <p><strong>Pierwsza odpowiedź do:</strong> @(_ticket.DueFirstResponseAtUtc?.ToString("u") ?? "—")</p>
+    <p><strong>Rozwiązanie do:</strong> @(_ticket.DueResolveAtUtc?.ToString("u") ?? "—")</p>
+    @if (_ticket.FirstRespondedAtUtc is not null)
+    {
+        <p><strong>Pierwsza odpowiedź (UTC):</strong> @_ticket.FirstRespondedAtUtc</p>
+    }
+    @if (_ticket.ResolvedAtUtc is not null)
+    {
+        <p><strong>Rozwiązano (UTC):</strong> @_ticket.ResolvedAtUtc</p>
+    }
+    <p><strong>Poziom eskalacji:</strong> @_ticket.EscalationLevel</p>
+
+    <AuthorizeView Policy="CanManageTickets">
+        <Authorized>
+            <button class="btn btn-primary" type="button" @onclick='() => Nav.NavigateTo($"/tickets/edit/{Id}")'>Edytuj</button>
+        </Authorized>
+    </AuthorizeView>
+
+    <hr />
+    <h5>Komentarze</h5>
+    <TicketComments TicketId="@Id" />
+
+    <hr />
+    <h5>Załączniki</h5>
+    <TicketAttachments TicketId="@Id" />
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+
+    private TicketDto? _ticket;
+    private bool _done;
+    private IAsyncDisposable? _realtimeSubscription;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_realtimeSubscription is not null)
+            await _realtimeSubscription.DisposeAsync();
+        _realtimeSubscription = null;
+
+        _done = false;
+        _ticket = await TicketApi.GetByIdAsync(Id);
+        _done = true;
+
+        _realtimeSubscription = await TicketRealtime.SubscribeTicketAsync(Id, OnTicketRealtimeAsync);
+    }
+
+    private async Task OnTicketRealtimeAsync(TicketLiveUpdateDto dto)
+    {
+        if (dto.TicketId != Id)
+            return;
+
+        await InvokeAsync(async () =>
+        {
+            _ticket = await TicketApi.GetByIdAsync(Id);
+            StateHasChanged();
+        });
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_realtimeSubscription is not null)
+            await _realtimeSubscription.DisposeAsync();
+    }
+}

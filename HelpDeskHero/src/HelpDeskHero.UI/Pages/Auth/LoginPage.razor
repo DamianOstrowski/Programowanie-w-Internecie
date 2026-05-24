@@ -1,0 +1,56 @@
+﻿@page "/login"
+@attribute [AllowAnonymous]
+@inject NavigationManager Nav
+@inject HelpDeskHero.UI.Services.Api.AuthApiClient AuthApi
+
+<h3>Logowanie</h3>
+
+@if (!string.IsNullOrWhiteSpace(_error))
+{
+    <div class="alert alert-danger">@_error</div>
+}
+
+<EditForm Model="_model" OnValidSubmit="HandleLoginAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Login</label>
+        <InputText class="form-control" @bind-Value="_model.UserName" />
+    </div>
+
+    <div class="mb-3">
+        <label>Hasło</label>
+        <InputText class="form-control" type="password" @bind-Value="_model.Password" />
+    </div>
+
+    <button class="btn btn-primary" type="submit" disabled="@_busy">Zaloguj</button>
+</EditForm>
+
+@code {
+    private HelpDeskHero.Shared.Contracts.Auth.LoginRequestDto _model = new()
+    {
+        DeviceName = Environment.MachineName
+    };
+
+    private bool _busy;
+    private string? _error;
+
+    private async Task HandleLoginAsync()
+    {
+        _busy = true;
+        _error = null;
+
+        var ok = await AuthApi.LoginAsync(_model);
+
+        _busy = false;
+
+        if (!ok)
+        {
+            _error = "Nieprawidłowy login lub hasło.";
+            return;
+        }
+
+        Nav.NavigateTo("/dashboard");
+    }
+}

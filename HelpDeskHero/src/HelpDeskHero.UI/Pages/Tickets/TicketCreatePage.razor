@@ -1,0 +1,85 @@
+﻿@page "/tickets/create"
+@attribute [Authorize(Policy = "CanManageTickets")]
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Services.Api
+@inject ITicketApiClient TicketApi
+@inject NavigationManager Navigation
+
+<PageTitle>Nowe zgłoszenie</PageTitle>
+
+<h3>Nowe zgłoszenie</h3>
+
+<EditForm Model="_model" OnValidSubmit="HandleSubmitAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Tytuł</label>
+        <InputText class="form-control" @bind-Value="_model.Title" />
+        <ValidationMessage For="@(() => _model.Title)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Opis</label>
+        <InputTextArea class="form-control" @bind-Value="_model.Description" />
+        <ValidationMessage For="@(() => _model.Description)" />
+    </div>
+
+    <div class="mb-3">
+        <label>Priorytet</label>
+        <InputSelect class="form-select" @bind-Value="_model.Priority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+            <option>Critical</option>
+        </InputSelect>
+        <ValidationMessage For="@(() => _model.Priority)" />
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(_error))
+    {
+        <div class="alert alert-danger">@_error</div>
+    }
+
+    <button class="btn btn-primary" type="submit" disabled="@_busy">Zapisz</button>
+</EditForm>
+
+@code {
+    private bool _busy;
+    private string? _error;
+    private CreateTicketDto _model = new();
+
+    private async Task HandleSubmitAsync()
+    {
+        _busy = true;
+        _error = null;
+
+        try
+        {
+            var response = await TicketApi.CreateAsync(_model);
+            if (response.IsSuccessStatusCode)
+            {
+                Navigation.NavigateTo("/tickets");
+                return;
+            }
+
+            if ((int)response.StatusCode == 400)
+            {
+                _error = "Walidacja po stronie serwera nie powiodła się.";
+                return;
+            }
+
+            if ((int)response.StatusCode == 403)
+            {
+                _error = "Brak uprawnień do utworzenia zgłoszenia.";
+                return;
+            }
+
+            _error = "Nie udało się zapisać zgłoszenia.";
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+}

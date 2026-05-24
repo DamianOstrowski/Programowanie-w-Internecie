@@ -1,0 +1,47 @@
+name: build-and-test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore
+        run: dotnet restore .\HelpDeskHero.slnx
+
+      - name: Build
+        run: dotnet build .\HelpDeskHero.slnx --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test .\HelpDeskHero.slnx --configuration Release --no-build
+
+      - name: Publish API
+        run: dotnet publish .\src\HelpDeskHero.Api\HelpDeskHero.Api.csproj -c Release -o .\artifacts\api
+
+      - name: Publish UI
+        run: dotnet publish .\src\HelpDeskHero.UI\HelpDeskHero.UI.csproj -c Release -o .\artifacts\ui
+
+      - name: Upload API artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: helpdeskhero-api
+          path: .\artifacts\api
+
+      - name: Upload UI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: helpdeskhero-ui
+          path: .\artifacts\ui

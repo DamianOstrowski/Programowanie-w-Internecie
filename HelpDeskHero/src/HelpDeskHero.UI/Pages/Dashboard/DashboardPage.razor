@@ -1,0 +1,85 @@
+@page "/dashboard"
+@attribute [Authorize]
+@using HelpDeskHero.Shared.Contracts.Dashboard
+@inject HelpDeskHero.UI.Services.Api.DashboardApiClient DashboardApi
+
+<PageTitle>Dashboard</PageTitle>
+
+<h3>Dashboard</h3>
+
+@if (_model is null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><div class="card p-3">Total: @_model.TotalTickets</div></div>
+        <div class="col-md-3"><div class="card p-3">Open: @_model.OpenTickets</div></div>
+        <div class="col-md-3"><div class="card p-3">Closed: @_model.ClosedTickets</div></div>
+        <div class="col-md-3"><div class="card p-3">Deleted: @_model.DeletedTickets</div></div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3"><div class="card p-3">High priority (open): @_model.HighPriorityOpenTickets</div></div>
+    </div>
+
+    <h5>Ostatni audit</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>When</th>
+                <th>Action</th>
+                <th>Entity</th>
+                <th>User</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _model.RecentAuditItems)
+            {
+                <tr>
+                    <td>@item.CreatedAtUtc.ToString("u")</td>
+                    <td>@item.Action</td>
+                    <td>@item.EntityName</td>
+                    <td>@item.PerformedBy</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@implements IAsyncDisposable
+
+@code {
+    private DashboardSummaryDto? _model;
+    private CancellationTokenSource? _cts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _cts = new CancellationTokenSource();
+        await LoadAsync(_cts.Token);
+        _ = RefreshLoopAsync(_cts.Token);
+    }
+
+    private async Task LoadAsync(CancellationToken ct)
+    {
+        _model = await DashboardApi.GetSummaryAsync(ct);
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task RefreshLoopAsync(CancellationToken ct)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(30));
+        while (!ct.IsCancellationRequested && await timer.WaitForNextTickAsync(ct))
+        {
+            await LoadAsync(ct);
+        }
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        _cts?.Cancel();
+        _cts?.Dispose();
+        return ValueTask.CompletedTask;
+    }
+}

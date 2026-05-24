@@ -1,0 +1,194 @@
+@page "/tickets"
+@attribute [Authorize]
+@implements IAsyncDisposable
+@inject HelpDeskHero.UI.Services.Realtime.ITicketRealtime Realtime
+
+@using HelpDeskHero.Shared.Contracts.Common
+@using HelpDeskHero.Shared.Contracts.Tickets
+@using HelpDeskHero.UI.Components.Shared
+@using HelpDeskHero.UI.Services.Realtime
+@inject HelpDeskHero.UI.Services.Api.TicketApiClient TicketApi
+@inject ITicketRealtime TicketRealtime
+@inject Microsoft.JSInterop.IJSRuntime Js
+
+<h3>Zgłoszenia</h3>
+
+<div class="row g-2 mb-3">
+    <div class="col-md-4">
+        <InputText class="form-control" @bind-Value="_query.Search" placeholder="Szukaj..." />
+    </div>
+    <div class="col-md-2">
+        <InputSelect class="form-select" @bind-Value="_query.Status">
+            <option value="">Wszystkie statusy</option>
+            <option value="New">New</option>
+            <option value="InProgress">InProgress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Closed">Closed</option>
+        </InputSelect>
+    </div>
+    <div class="col-md-2">
+        <InputSelect class="form-select" @bind-Value="_query.Priority">
+            <option value="">Wszystkie priorytety</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+        </InputSelect>
+    </div>
+    <div class="col-md-2">
+        <button class="btn btn-primary w-100" type="button" @onclick="ReloadAsync">Filtruj</button>
+    </div>
+    <AuthorizeView Policy="CanManageTickets">
+        <Authorized>
+            <div class="col-md-2">
+                <button class="btn btn-outline-secondary w-100" type="button" @onclick="ExportCsvAsync">Export CSV</button>
+            </div>
+        </Authorized>
+    </AuthorizeView>
+</div>
+
+@if (_result is null)
+{
+    <p>Ładowanie...</p>
+}
+else
+{
+    <p>Łącznie: @_result.TotalCount</p>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Tytuł</th>
+                <th>Status</th>
+                <th>Priorytet</th>
+                <th>SLA (rozwiązanie)</th>
+                <th>Eskalacja</th>
+                <th>Utworzono</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _result.Items)
+            {
+                <tr>
+                    <td>@item.Number</td>
+                    <td><a href="@($"/tickets/{item.Id}")">@item.Title</a></td>
+                    <td><StatusBadge Status="@item.Status" /></td>
+                    <td><PriorityBadge Priority="@item.Priority" /></td>
+                    <td>@(item.DueResolveAtUtc?.ToLocalTime().ToString("g") ?? "—")</td>
+                    <td>@item.EscalationLevel</td>
+                    <td>@item.CreatedAtUtc.ToLocalTime()</td>
+                    <td>
+                        <AuthorizeView Policy="CanManageTickets">
+                            <Authorized>
+                                <button class="btn btn-sm btn-outline-danger" type="button" @onclick="() => DeleteAsync(item.Id)">Usuń</button>
+                            </Authorized>
+                        </AuthorizeView>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-2">
+        <button class="btn btn-outline-secondary" type="button" disabled="@(_query.PageNumber <= 1)" @onclick="PrevAsync">Poprzednia</button>
+        <span>Strona @_query.PageNumber</span>
+        <button class="btn btn-outline-secondary" type="button"
+                disabled="@((_query.PageNumber * _query.PageSize) >= _result.TotalCount)"
+                @onclick="NextAsync">
+            Następna
+        </button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(_error))
+{
+    <div class="alert alert-danger mt-2">@_error</div>
+}
+
+@code {
+    private TicketQueryDto _query = new();
+    private PagedResultDto<TicketDto>? _result;
+    private string? _error;
+    private IAsyncDisposable? _realtimeSubscription;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _realtimeSubscription = await TicketRealtime.SubscribeDashboardAsync(_ => OnTicketRealtimeAsync());
+        await ReloadAsync();
+    }
+
+    private async Task OnTicketRealtimeAsync()
+    {
+        await InvokeAsync(async () => await ReloadAsync());
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (_realtimeSubscription is not null)
+            await _realtimeSubscription.DisposeAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
+        _error = null;
+        _result = await TicketApi.GetPageAsync(_query);
+        if (_result is null)
+            _error = "Nie udało się wczytać listy zgłoszeń.";
+    }
+
+    private async Task PrevAsync()
+    {
+        if (_query.PageNumber > 1)
+        {
+            _query.PageNumber--;
+            await ReloadAsync();
+        }
+    }
+
+    private async Task NextAsync()
+    {
+        if (_result is null || (_query.PageNumber * _query.PageSize) >= _result.TotalCount)
+            return;
+
+        _query.PageNumber++;
+        await ReloadAsync();
+    }
+
+    private async Task DeleteAsync(int id)
+    {
+        _error = null;
+        var response = await TicketApi.DeleteAsync(id);
+        if (!response.IsSuccessStatusCode)
+        {
+            _error = "Nie udało się usunąć zgłoszenia.";
+            return;
+        }
+
+        await ReloadAsync();
+    }
+
+    private async Task ExportCsvAsync()
+    {
+        _error = null;
+        try
+        {
+            var response = await TicketApi.ExportCsvAsync(_query.Status, _query.Priority);
+            if (!response.IsSuccessStatusCode)
+            {
+                _error = "Nie udało się wyeksportować CSV.";
+                return;
+            }
+
+            var bytes = await response.Content.ReadAsByteArrayAsync();
+            var base64 = Convert.ToBase64String(bytes);
+            var fileName = $"tickets-{DateTime.UtcNow:yyyyMMddHHmmss}.csv";
+            await Js.InvokeVoidAsync("helpDeskHeroDownload", fileName, "text/csv", base64);
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+    }
+}

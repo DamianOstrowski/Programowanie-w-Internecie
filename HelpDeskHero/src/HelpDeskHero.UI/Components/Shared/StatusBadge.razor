@@ -1,0 +1,14 @@
+<span class="badge @GetCssClass(Status)">@Status</span>
+
+@code {
+    [Parameter] public string Status { get; set; } = "New";
+
+    private static string GetCssClass(string status) => status switch
+    {
+        "New" => "bg-secondary",
+        "InProgress" => "bg-primary",
+        "Resolved" => "bg-success",
+        "Closed" => "bg-dark",
+        _ => "bg-light text-dark"
+    };
+}

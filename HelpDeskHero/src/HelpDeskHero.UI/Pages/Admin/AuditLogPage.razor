@@ -1,0 +1,153 @@
+@page "/admin/audit"
+@attribute [Authorize(Policy = "CanViewAudit")]
+@using System.Net.Http.Json
+@using HelpDeskHero.Shared.Contracts.Audit
+@inject HttpClient Http
+
+<PageTitle>Audit log</PageTitle>
+
+<h3>Audit log</h3>
+
+<div class="row g-2 mb-3">
+    <div class="col-md-2">
+        <label class="form-label">Akcja</label>
+        <InputText class="form-control" @bind-Value="_filters.Action" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Encja</label>
+        <InputText class="form-control" @bind-Value="_filters.EntityName" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Wykonał (zawiera)</label>
+        <InputText class="form-control" @bind-Value="_filters.PerformedBy" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Od UTC (ISO)</label>
+        <InputText class="form-control" @bind-Value="_filters.FromUtcText" placeholder="np. 2026-01-01" />
+    </div>
+    <div class="col-md-2">
+        <label class="form-label">Do UTC (ISO)</label>
+        <InputText class="form-control" @bind-Value="_filters.ToUtcText" />
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+        <button class="btn btn-primary w-100" type="button" @onclick="ReloadAsync">Filtruj</button>
+    </div>
+</div>
+<div class="mb-3">
+    <button class="btn btn-outline-secondary btn-sm" type="button" @onclick="ClearFiltersAsync">Wyczyść filtry</button>
+</div>
+
+@if (_loading)
+{
+    <p>Ładowanie...</p>
+}
+else if (_error is not null)
+{
+    <div class="alert alert-danger">@_error</div>
+}
+else if (_items.Count == 0)
+{
+    <p>Brak wpisów.</p>
+}
+else
+{
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th>Czas (UTC)</th>
+                <th>Akcja</th>
+                <th>Encja</th>
+                <th>Id encji</th>
+                <th>Wykonał</th>
+                <th>Szczegóły</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in _items)
+            {
+                <tr>
+                    <td>@row.CreatedAtUtc</td>
+                    <td>@row.Action</td>
+                    <td>@row.EntityName</td>
+                    <td>@row.EntityId</td>
+                    <td>@row.PerformedBy</td>
+                    <td><small>@row.Details</small></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private readonly AuditFilterModel _filters = new();
+
+    private bool _loading = true;
+    private string? _error;
+    private List<AuditLogListItemDto> _items = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ReloadAsync();
+    }
+
+    private async Task ReloadAsync()
+    {
+        _loading = true;
+        _error = null;
+        try
+        {
+            var qs = new List<string>();
+            if (!string.IsNullOrWhiteSpace(_filters.Action))
+                qs.Add($"action={Uri.EscapeDataString(_filters.Action)}");
+            if (!string.IsNullOrWhiteSpace(_filters.EntityName))
+                qs.Add($"entityName={Uri.EscapeDataString(_filters.EntityName)}");
+            if (!string.IsNullOrWhiteSpace(_filters.PerformedBy))
+                qs.Add($"performedBy={Uri.EscapeDataString(_filters.PerformedBy)}");
+
+            if (!string.IsNullOrWhiteSpace(_filters.FromUtcText)
+                && DateTime.TryParse(_filters.FromUtcText, null, System.Globalization.DateTimeStyles.RoundtripKind, out var from))
+                qs.Add($"fromUtc={Uri.EscapeDataString(from.ToUniversalTime().ToString("O"))}");
+
+            if (!string.IsNullOrWhiteSpace(_filters.ToUtcText)
+                && DateTime.TryParse(_filters.ToUtcText, null, System.Globalization.DateTimeStyles.RoundtripKind, out var to))
+                qs.Add($"toUtc={Uri.EscapeDataString(to.ToUniversalTime().ToString("O"))}");
+
+            var url = "api/audit" + (qs.Count > 0 ? "?" + string.Join("&", qs) : string.Empty);
+            var response = await Http.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                _error = "Brak dostępu lub błąd serwera.";
+                return;
+            }
+
+            _items = await response.Content.ReadFromJsonAsync<List<AuditLogListItemDto>>() ?? [];
+        }
+        catch (Exception ex)
+        {
+            _error = ex.Message;
+        }
+        finally
+        {
+            _loading = false;
+        }
+    }
+
+    private async Task ClearFiltersAsync()
+    {
+        _filters.Action = string.Empty;
+        _filters.EntityName = string.Empty;
+        _filters.PerformedBy = string.Empty;
+        _filters.FromUtcText = string.Empty;
+        _filters.ToUtcText = string.Empty;
+        await ReloadAsync();
+    }
+
+    private sealed class AuditFilterModel
+    {
+        public string Action { get; set; } = string.Empty;
+        public string EntityName { get; set; } = string.Empty;
+        public string PerformedBy { get; set; } = string.Empty;
+        public string FromUtcText { get; set; } = string.Empty;
+        public string ToUtcText { get; set; } = string.Empty;
+    }
+}

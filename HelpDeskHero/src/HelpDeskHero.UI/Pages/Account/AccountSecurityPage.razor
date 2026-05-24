@@ -1,0 +1,52 @@
+@page "/account/security"
+@attribute [Authorize]
+@inject HelpDeskHero.UI.Services.Api.AuthApiClient AuthApi
+@inject NavigationManager Nav
+@inject Microsoft.JSInterop.IJSRuntime JsRuntime
+
+<PageTitle>Bezpieczeństwo konta</PageTitle>
+
+<h3>Bezpieczeństwo konta</h3>
+
+@if (!string.IsNullOrWhiteSpace(_message))
+{
+    <div class="alert @(_success ? "alert-success" : "alert-danger")">@_message</div>
+}
+
+<p class="text-muted">Unieważni wszystkie sesje i tokeny odświeżania na wszystkich urządzeniach. Na tym urządzeniu zostaniesz wylogowany.</p>
+
+<button class="btn btn-warning" type="button" disabled="@_busy" @onclick="RevokeAllAsync">Wyloguj wszystkie urządzenia</button>
+
+@code {
+    private bool _busy;
+    private string? _message;
+    private bool _success;
+
+    private async Task RevokeAllAsync()
+    {
+        if (!await JsRuntime.InvokeAsync<bool>("confirm", "Na pewno unieważnić wszystkie sesje?"))
+            return;
+
+        _busy = true;
+        _message = null;
+        try
+        {
+            var ok = await AuthApi.RevokeAllSessionsAsync();
+            if (!ok)
+            {
+                _success = false;
+                _message = "Operacja nie powiodła się.";
+                return;
+            }
+
+            await AuthApi.LogoutAsync();
+            _success = true;
+            _message = "Wszystkie sesje zostały unieważnione. Przekierowanie na logowanie…";
+            Nav.NavigateTo("/login", true);
+        }
+        finally
+        {
+            _busy = false;
+        }
+    }
+}

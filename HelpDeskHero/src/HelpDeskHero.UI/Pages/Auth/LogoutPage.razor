@@ -1,0 +1,14 @@
+﻿@page "/logout"
+@attribute [Authorize]
+@inject NavigationManager Nav
+@inject HelpDeskHero.UI.Services.Api.AuthApiClient AuthApi
+
+<p>Wylogowywanie...</p>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await AuthApi.LogoutAsync();
+        Nav.NavigateTo("/login", true);
+    }
+}
