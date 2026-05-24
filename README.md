@@ -4,7 +4,7 @@ Okno logowania:
 
 <img width="1627" height="538" alt="1" src="https://github.com/user-attachments/assets/cfff441d-604a-4a94-bb91-3a347b8b84e5" />
 
-Widok aplikacji po zalogowaniu przez administratora:
+<br>Widok aplikacji po zalogowaniu przez administratora:
 
 <img width="1688" height="1004" alt="2" src="https://github.com/user-attachments/assets/0326938f-f097-41f8-8cfd-5ba2e662a58f" />
 
