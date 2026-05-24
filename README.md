@@ -1,4 +1,4 @@
-Poniżej załączam zrzuty ekranu z działającej aplikacji HelpDeskHero:
+Poniżej załączam zrzuty ekranu z działającej aplikacji HelpDeskHero oraz dane do logowania:
 
 Okno logowania:
 
