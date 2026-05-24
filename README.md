@@ -20,7 +20,7 @@ Widok aplikacji po zalogowaniu przez usera:
 
 <img width="1684" height="996" alt="10" src="https://github.com/user-attachments/assets/6360862b-fb85-4115-befe-cbc175f21699" />
 
-Dane do logowania do aplikacji:
+Dane logowania do aplikacji:
 
 Admin
 Login: admin
